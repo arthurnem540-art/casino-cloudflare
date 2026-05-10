@@ -3,53 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Roleta Profissional</title>
+    <title>Blaze Clone - Double</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
 <div class="main-layout">
     <aside class="sidebar">
-        <div class="sidebar-header">
-            <h2>🎰 CASINO PRO</h2>
-        </div>
+        <div class="sidebar-header">BLAZE CLONE</div>
         
-        <div class="bet-panel">
-            <label for="betAmount">Quantia da Aposta</label>
-            <div class="input-group">
-                <span class="currency-symbol">R$</span>
-                <input type="number" id="betAmount" value="1.00" min="0.10" step="0.10">
-                <button class="btn-input-adj" onclick="adjustBet(0.5)">½</button>
-                <button class="btn-input-adj" onclick="adjustBet(2)">2x</button>
+        <div class="bet-container">
+            <label>Quantia</label>
+            <div class="input-area">
+                <input type="number" id="betAmount" value="1.00">
+                <button onclick="adjustBet(0.5)">½</button>
+                <button onclick="adjustBet(2)">2x</button>
             </div>
-
-            <button class="btn-spin" onclick="spin()">
-                <i class="fa-solid fa-play"></i> COMEÇAR O JOGO
-            </button>
+            
+            <button class="btn-spin" id="spinBtn" onclick="spin()">Começar o jogo</button>
         </div>
 
-        <div class="balance-card">
-            <span class="balance-label">Seu Saldo</span>
-            <span class="balance-value">R$ <span id="saldo">997.00</span></span>
+        <div class="balance-box">
+            Saldo: R$ <span id="saldo">1000.00</span>
         </div>
     </aside>
 
     <main class="game-area">
-        <div class="roleta-section">
-            <div class="roleta-wrapper">
-                <div class="pointer"></div>
-                <img src="https://i.imgur.com/uR1k33i.png" id="wheel" class="wheel-img" alt="Roleta">
+        <div class="display-roleta">
+            <div class="pointer"></div>
+            <div class="wheel-container">
+                <img src="https://i.postimg.cc/qM9387n0/blaze-wheel.png" id="wheel" class="wheel-img">
             </div>
-            
-            <div id="status-text" class="status-waiting">ESPERANDO APOSTAS</div>
         </div>
-        
-        <div class="history-section">
-            <h3>Últimos Resultados</h3>
-            <div class="history" id="history">
-                </div>
+
+        <div class="bet-selector">
+            <button class="bet-btn red" onclick="selectBet('red')">2x</button>
+            <button class="bet-btn white" onclick="selectBet('white')">14x</button>
+            <button class="bet-btn black" onclick="selectBet('black')">2x</button>
         </div>
+
+        <div id="status-text">ESCOLHA UMA COR</div>
+
+        <div class="history" id="history"></div>
     </main>
 </div>
 
