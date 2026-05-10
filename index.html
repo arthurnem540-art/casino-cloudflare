@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casino Cloudflare</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blaze Clone - Roleta</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="container">
+<div class="main-layout">
+    <aside class="sidebar">
+        <div class="bet-header">
+            <span>Quantia</span>
+        </div>
+        <div class="input-group">
+            <input type="number" id="betAmount" value="1.00">
+            <button class="btn-half">½</button>
+            <button class="btn-double">2x</button>
+        </div>
+        
+        <button class="btn-spin" onclick="spin()">Começar o jogo</button>
+        
+        <div class="balance-info">
+            Saldo: <span id="saldo">1000.00</span>
+        </div>
+    </aside>
 
-    <h1>🎰 Casino Cloudflare</h1>
-
-    <div class="saldo">
-        Saldo: <span id="saldo">1000</span> moedas
-    </div>
-
-    <div class="roleta-box">
-        <div id="resultado">Clique para girar</div>
-    </div>
-
-    <button onclick="girar()">GIRAR ROLETA</button>
-
+    <main class="game-area">
+        <div class="roleta-container">
+            <div class="pointer"></div>
+            <img src="https://i.imgur.com/8X8Hn8p.png" id="wheel" class="wheel-img">
+        </div>
+        
+        <div id="status-text">ESPERANDO APOSTAS</div>
+        
+        <div class="history" id="history">
+            </div>
+    </main>
 </div>
 
 <script src="app.js"></script>

@@ -1,40 +1,46 @@
-body {
-    background-color: #1a1a1a;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #0f1923; color: white; font-family: sans-serif; }
 
-.container {
-    text-align: center;
-    background-color: #2a2a2a;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
+.main-layout { display: flex; height: 100vh; }
 
-.roleta-box {
-    font-size: 2rem;
-    margin: 20px 0;
+/* Lateral */
+.sidebar {
+    width: 300px;
+    background-color: #1a242d;
     padding: 20px;
-    border: 2px dashed #ffd700;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-button {
-    background-color: #ffd700;
-    color: black;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
+.input-group { display: flex; background: #0f1923; border-radius: 4px; padding: 5px; }
+.input-group input { 
+    background: transparent; border: none; color: white; width: 100%; padding: 10px; outline: none;
 }
 
-button:hover {
-    background-color: #ffcc00;
+.btn-spin {
+    background-color: #f12c4c;
+    color: white; border: none; padding: 15px;
+    border-radius: 4px; font-weight: bold; cursor: pointer;
+    transition: 0.3s;
 }
+.btn-spin:hover { background-color: #ff4d6d; }
+
+/* Game Area */
+.game-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+
+.roleta-container { position: relative; width: 400px; height: 400px; }
+.wheel-img { width: 100%; transition: transform 5s cubic-bezier(0.15, 0, 0.15, 1); }
+
+.pointer {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 0; 
+    border-left: 15px solid transparent; border-right: 15px solid transparent;
+    border-top: 30px solid #f12c4c; z-index: 10;
+}
+
+.history { display: flex; gap: 8px; margin-top: 30px; }
+.history-item { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+.red { background: #f12c4c; }
+.black { background: #2f3b45; }
+.white { background: #ffffff; color: black; }
